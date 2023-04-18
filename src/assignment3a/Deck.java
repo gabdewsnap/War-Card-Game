@@ -13,7 +13,6 @@ public class Deck {
     }
     
     private void loadCards(String imgName){
-    //remove name of card we just want the path
         for(int i = 101; i <= 152; i++){
             deck.add(new Card(imgName + i + ".gif"));
         }
@@ -33,7 +32,6 @@ public class Deck {
     }
     
     public Deck(){
-        //Create a default constructor that sets the default path to "file:img\\". Again, keep one code path by delegating the constructors.
         this("file:img\\");
     }
 }

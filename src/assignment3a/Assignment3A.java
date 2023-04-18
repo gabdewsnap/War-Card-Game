@@ -1,8 +1,8 @@
 /*
     Name: Gabrielle Dewsnap
     ID: 0713071
-    Date: 04/16/2023
-    Description: Constructors and Composition
+    Date: 04/12/2023
+    Description: Static Classes
 */
 package assignment3a;
 
@@ -31,7 +31,7 @@ public class Assignment3A extends Application {
     Button btnReset = new Button("Reset");
     int rightVal = 0;
     int leftVal = 0;
-    int score = 0;
+    //int score = 0;
     boolean rightsTurn = true;
     Deck deck = new Deck();
     
@@ -41,14 +41,12 @@ public class Assignment3A extends Application {
         btnReset.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                rightVal = 0;
-                leftVal = 0;
-                score = 0;
+                Score.resetScore();
                 tfRight.setText("0");
                 tfLeft.setText("0");
                 rightsTurn = true;
-   
-                resetCardImages(); 
+               
+                resetCardImages();  
                 deck.deal();
             }
         });
@@ -71,14 +69,12 @@ public class Assignment3A extends Application {
             }
             
             if(rightVal > leftVal){
-                score = Integer.parseInt(tfRight.getText());
-                score+= rightVal;
-                tfRight.setText(Integer.toString(score));
+                Score.setRightScore(rightVal);
+                tfRight.setText(Integer.toString(Score.getRightScore()));
             }
             else if(rightVal < leftVal){
-                score = Integer.parseInt(tfLeft.getText());
-                score+= leftVal;
-                tfLeft.setText(Integer.toString(score));
+                Score.setLeftScore(leftVal);
+                tfLeft.setText(Integer.toString(Score.getLeftScore()));
             }
             rightsTurn = !rightsTurn;
         });
@@ -141,4 +137,4 @@ public class Assignment3A extends Application {
     public static void main(String[] args) {        
         launch(args);      
     }   
-} 
+}
