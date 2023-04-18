@@ -1,13 +1,12 @@
 /*
     Name: Gabrielle Dewsnap
     ID: 0713071
-    Date: 04/12/2023
-    Description: Static Classes
+    Date: 04/16/2023
+    Description: Inheritance
 */
 package assignment3a;
 
 import java.io.FileNotFoundException;
-import java.util.Random;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.*;
@@ -53,18 +52,15 @@ public class Assignment3A extends Application {
 
         //mouse clicked event
         lblCardDeck.setOnMouseClicked((MouseEvent arg0) -> {           
-            Random rand = new Random();
-            int num = rand.nextInt(155 - 101) + 101;
-            String str = "file:img/" + Integer.toString(num) + ".gif";
             Card imgCardLeft = deck.deal();
             Card imgCardRight = deck.deal();
                 
             if(rightsTurn){    
-                lblCardRight.setGraphic(imgCardRight.getCard()); 
+                lblCardRight.setGraphic(imgCardRight.image); 
                 rightVal = imgCardRight.getValue();        
             }
             else{
-                lblCardLeft.setGraphic(imgCardLeft.getCard());  
+                lblCardLeft.setGraphic(imgCardLeft.image);  
                 leftVal = imgCardLeft.getValue();               
             }
             
@@ -125,16 +121,16 @@ public class Assignment3A extends Application {
     
     public void resetCardImages(){    
         Card imgCardLeft = new Card();    
-        lblCardLeft.setGraphic(imgCardLeft.getCard());        
+        lblCardLeft.setGraphic(imgCardLeft.image);        
           
         Card imgCardRight = new Card();  
-        lblCardRight.setGraphic(imgCardRight.getCard());
+        lblCardRight.setGraphic(imgCardRight.image);
           
         Card imgCardDeck = new Card();  
-        lblCardDeck.setGraphic(imgCardDeck.getCard());      
+        lblCardDeck.setGraphic(imgCardDeck.image);      
     }
 
     public static void main(String[] args) {        
         launch(args);      
     }   
-}
+} 

@@ -3,8 +3,8 @@ package assignment3a;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 
-public class Card{
-    private Label image = new Label();
+public class Card extends Label{
+    public Label image = new Label();
     private Image cardImg;
     private int value;
     private String name = new String();
@@ -20,10 +20,6 @@ public class Card{
     public void setImage(String imgName){
         name = imgName;
         loadCard(name);
-    }
-    
-    public Label getCard(){
-        return image;
     }
     
     private void getCardValue(String imgName){    

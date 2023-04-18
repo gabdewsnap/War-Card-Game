@@ -3,7 +3,7 @@ package assignment3a;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck {
+public class Deck extends ArrayList{
     int index = 0;
     private final int LAST_CARD = 45;
     ArrayList<Card> deck = new ArrayList<>();
